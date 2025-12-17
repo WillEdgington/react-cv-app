@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.panel {
+  flex: 1;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  padding: 20px;
+}
+
+.toolbar {
+  padding: 10px;
+  background: #f3f3f3;
+  border-bottom: 1px solid #ccc;
+}
+
+input {
+  display: block;
+  margin-bottom: 12px;
+  padding: 6px;
+}
