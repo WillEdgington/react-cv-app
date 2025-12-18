@@ -1,10 +1,10 @@
 import PersonalForm from "./PersonalForm.jsx";
 
-export default function EditorPanel({ onHide }) {
+export default function EditorPanel({ buttonLabel, onButtonClick }) {
   return (
-    <div>
+    <div className="panel">
       <div className="toolbar">
-        <button onClick={onHide}>Hide Editor</button>
+        <button onClick={onButtonClick}>{buttonLabel}</button>
       </div>
 
       <PersonalForm />

@@ -1,10 +1,10 @@
 import CVPreview from "./CVPreview.jsx";
 
-export default function PreviewPanel({ onHide }) {
+export default function PreviewPanel({ buttonLabel, onButtonClick }) {
   return (
-    <div>
+    <div className="panel">
       <div className="toolbar">
-        <button onClick={onHide}>Hide Preview</button>
+        <button onClick={onButtonClick}>{buttonLabel}</button>
       </div>
 
       <CVPreview />
