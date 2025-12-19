@@ -1,4 +1,4 @@
-import { useCV } from "../CVContext.jsx";
+import { useCV } from "../../../CVContext.jsx";
 
 export default function PersonalForm() {
   const { state, updateSection } = useCV();
@@ -15,7 +15,7 @@ export default function PersonalForm() {
     <div className="section">
       <h2>Personal Information</h2>
 
-      <label>Name</label>
+      <label>Full Name</label>
       <input name="name" value={personal.name} onChange={handleChange} />
       
       <label>Email</label>

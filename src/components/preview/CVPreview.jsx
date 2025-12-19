@@ -1,4 +1,4 @@
-import { useCV } from "../CVContext.jsx";
+import { useCV } from "../../CVContext.jsx";
 
 export default function CVPreview() {
   const { state } = useCV();
