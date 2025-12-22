@@ -1,16 +1,18 @@
 import { useState } from "react";
-import PersonalForm from "./sections/PersonalForm.jsx";
 import Toolbar from "./Toolbar.jsx";
+
+import PersonalPage from "./sections/PersonalPage.jsx";
+import SkillsPage from "./sections/SkillsPage.jsx";
 
 export default function EditorPanel({ buttonLabel, onButtonClick }) {
   const [active, setActive] = useState("personal");
 
   const renderSection = () => {
     switch (active) {
-      case "personal": return <PersonalForm />;
+      case "personal": return <PersonalPage />;
       case "experience": return null;
       case "education": return null;
-      case "skills": return null;
+      case "skills": return <SkillsPage />;
       default: return null;
     }
   };

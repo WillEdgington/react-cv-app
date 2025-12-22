@@ -1,6 +1,6 @@
 import { useCV } from "../../../CVContext.jsx";
 
-export default function PersonalForm() {
+export default function PersonalPage() {
   const { state, updateSection } = useCV();
   const personal = state.personal;
 

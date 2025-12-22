@@ -9,6 +9,7 @@ const initialState = {
     phone: "",
     location: "",
   },
+  skills: [],
 }
 
 function reducer(state, action) {
