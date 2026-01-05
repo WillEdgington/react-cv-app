@@ -14,7 +14,7 @@ function EducationList({ education, onDelete, onMove }) {
         <div className="education-actions">
           <button disabled={idx === 0} onClick={() => onMove(idx, -1)}>Up</button>
           <button disabled={idx === education.length - 1} onClick={() => onMove(idx, 1)}>Down</button>
-          <button onClick={() => onDelete(education.id)}>Delete</button>
+          <button onClick={() => onDelete(item.id)}>Delete</button>
         </div>
       </div>
     );
