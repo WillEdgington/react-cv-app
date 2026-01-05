@@ -3,6 +3,7 @@ import Toolbar from "./Toolbar.jsx";
 
 import PersonalPage from "./sections/PersonalPage.jsx";
 import SkillsPage from "./sections/SkillsPage.jsx";
+import EducationPage from "./sections/EducationPage.jsx";
 
 export default function EditorPanel({ buttonLabel, onButtonClick }) {
   const [active, setActive] = useState("personal");
@@ -11,7 +12,7 @@ export default function EditorPanel({ buttonLabel, onButtonClick }) {
     switch (active) {
       case "personal": return <PersonalPage />;
       case "experience": return null;
-      case "education": return null;
+      case "education": return <EducationPage />;
       case "skills": return <SkillsPage />;
       default: return null;
     }

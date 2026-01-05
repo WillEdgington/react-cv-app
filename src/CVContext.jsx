@@ -10,6 +10,7 @@ const initialState = {
     location: "",
   },
   skills: [],
+  education: [],
 }
 
 function reducer(state, action) {
