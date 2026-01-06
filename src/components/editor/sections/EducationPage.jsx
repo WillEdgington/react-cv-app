@@ -1,4 +1,4 @@
-import { useCV } from "../../../CVContext.jsx"
+import { useCV } from "../../../CVContext.jsx";
 import { useState } from "react";
 
 function EducationList({ education, onDelete, onMove }) {
@@ -32,7 +32,7 @@ function EducationForm({ onAdd }) {
     school: "",
     qualification: "",
     startYear: "",
-    endYear: "",
+    endYear: null,
     description: ""
   });
 
@@ -45,6 +45,14 @@ function EducationForm({ onAdd }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    const start = Number(form.startYear);
+    const end = form.endYear ? Number(form.endYear) : null;
+
+    if (end !== null && start > end) {
+      alert("Start year cannot be after end year");
+      return;
+    }
 
     onAdd({
       id: crypto.randomUUID(),
@@ -62,6 +70,7 @@ function EducationForm({ onAdd }) {
 
   return (
     <form onSubmit={handleSubmit} className="education-form">
+      <label>Institution</label><br/>
       <input 
         name="school"
         placeholder="Institution"
@@ -70,6 +79,7 @@ function EducationForm({ onAdd }) {
         required
       />
 
+      <label>Qualification</label><br/>
       <input 
         name="qualification"
         placeholder="Qualification"
@@ -78,22 +88,30 @@ function EducationForm({ onAdd }) {
         required
       />
 
-      <input 
+      <label>Start year</label><br/>
+      <input
+        type="number"
         name="startYear"
         placeholder="Start year"
         value={form.startYear}
         onChange={handleChange}
+        min="1900"
+        max={new Date().getFullYear()}
         required
       />
 
+      <label>End year</label><br/>
       <input
+        type="number"
         name="endYear"
         placeholder="End year"
         value={form.endYear}
         onChange={handleChange}
-        required
+        min="1900"
+        max={new Date().getFullYear() + 10}
       />
 
+      <label>Description</label><br/>
       <textarea
         name="description"
         placeholder="Description (optional)"
@@ -132,6 +150,7 @@ export default function EducationPage() {
 
   return (
     <div className="section">
+      <h2>Education Information</h2>
       <EducationList 
         education={education}
         onDelete={deleteEducation}

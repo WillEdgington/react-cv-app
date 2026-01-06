@@ -75,6 +75,7 @@ export default function SkillsPage() {
 
   return (
     <div className="section">
+      <h2>Skills Information</h2>
       <SkillsList
         skills={skills}
         onDelete={deleteSkill}
