@@ -11,6 +11,7 @@ const initialState = {
   },
   skills: [],
   education: [],
+  experience: [],
 }
 
 function reducer(state, action) {

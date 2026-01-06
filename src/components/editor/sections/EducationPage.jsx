@@ -32,7 +32,7 @@ function EducationForm({ onAdd }) {
     school: "",
     qualification: "",
     startYear: "",
-    endYear: null,
+    endYear: "",
     description: ""
   });
 
@@ -115,6 +115,7 @@ function EducationForm({ onAdd }) {
       <textarea
         name="description"
         placeholder="Description (optional)"
+        rows={4}
         value={form.description}
         onChange={handleChange}
       />
