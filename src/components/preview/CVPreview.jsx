@@ -56,6 +56,34 @@ function EducationPreview({ education, topN=5 }) {
   );
 }
 
+function ExperiencePreview({ experience, topN=5 }) {
+  function experienceItem(item) {
+    return (
+      <div className="experience-item">
+        <strong>{item.role}</strong>
+        <div>{item.company} {item.location && `- ${item.location}`}</div>
+        <div>{item.startYear} {item.isCurrent ? `- Current` : `- ${item.endYear}`}</div>
+        <div>{item.description}</div>
+      </div>
+    );
+  }
+  
+  const topItems = experience.slice(0, topN);
+  
+  return (
+    <div className="experience-preview">
+      <h3>Experience</h3>
+      <ul>
+        {topItems.map(item => (
+          <li key={item.id}>
+            {experienceItem(item)}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function CVPreview() {
   const { state } = useCV();
 
@@ -74,6 +102,12 @@ export default function CVPreview() {
       {state.education.length > 0 && (
         <EducationPreview 
           education={state.education}
+        />
+      )}
+
+      {state.experience.length > 0 && (
+        <ExperiencePreview 
+          experience={state.experience}
         />
       )}
     </div>
