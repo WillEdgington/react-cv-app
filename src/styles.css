@@ -30,3 +30,13 @@ input {
   margin-bottom: 12px;
   padding: 6px;
 }
+
+.field-error {
+  color: #c62828;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+input:has(+ .field-error) {
+  border-color: #c62828;
+}

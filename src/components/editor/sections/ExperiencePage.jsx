@@ -36,13 +36,31 @@ function ExperienceForm({ onAdd }) {
     endYear: "",
     isCurrent: false,
     description: ""
-  })
+  });
+  const [errors, setErrors] = useState({});
+
+  function validate(form) {
+    const errs = {};
+
+    const start = Number(form.startYear);
+    const end = form.endYear ? Number(form.endYear) : null;
+
+    if (!form.isCurrent && start > end) {
+      errs.endYear = "End year cannot be before start year";
+    }
+
+    return errs;
+  }
 
   function handleChange(e) {
-    setForm({
+    const { name, value } = e.target;
+
+    setForm(form => ({ ...form, [name]: value }));
+
+    setErrors(form => ({
       ...form,
-      [e.target.name]: e.target.value
-    });
+      [name]: undefined
+    }));
   }
 
   function handleCheckbox(e) {
@@ -58,13 +76,10 @@ function ExperienceForm({ onAdd }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const start = Number(form.startYear);
-    const end = form.endYear ? Number(form.endYear) : null;
+    const validationErrors = validate(form);
+    setErrors(validationErrors);
 
-    if (end !== null && start > end) {
-      alert("Start year cannot be after end year");
-      return;
-    }
+    if (Object.keys(validationErrors).length > 0) return;
 
     onAdd({
       id: crypto.randomUUID(),
@@ -84,71 +99,96 @@ function ExperienceForm({ onAdd }) {
 
   return (
     <form onSubmit={handleSubmit} className="experience-form">
+      <label>Company</label>
       <input 
         name="company" 
-        placeholder="Company"
+        placeholder="Enter Company..."
         value={form.company}
         onChange={handleChange}
-        required 
+        required
       />
+      {errors.company && (
+        <div className="field-error">{errors.company}</div>
+      )}
 
+      <label>Job title</label>
       <input 
         name="role" 
-        placeholder="Role / Job title"
+        placeholder="Enter Role / Job title..."
         value={form.role} 
         onChange={handleChange}
-        required 
+        required
       />
+      {errors.role && (
+        <div className="field-error">{errors.role}</div>
+      )}
 
+      <label>Location</label>
       <input 
         name="location" 
-        placeholder="Location (optional)"
+        placeholder="Enter Location (optional)..."
         value={form.location} 
         onChange={handleChange}
       />
+      {errors.location && (
+        <div className="field-error">{errors.location}</div>
+      )}
 
+      <label>Start year</label>
       <div className="date-row">
         <input 
           type="number" 
           name="startYear" 
-          placeholder="Start year"
+          placeholder="YYYY"
           value={form.startYear} 
           onChange={handleChange}
           min="1900"
           max={new Date().getFullYear()}
           required
         />
+        {errors.startYear && (
+          <div className="field-error">{errors.startYear}</div>
+        )}
 
         {!form.isCurrent && (
-          <input 
-            type="number" 
-            name="endYear"
-            placeholder="End year"
-            value={form.endYear}
-            onChange={handleChange}
-            min="1900"
-            max={new Date().getFullYear()}
-          />
+          <label>End year
+            <input 
+              type="number" 
+              name="endYear"
+              placeholder="YYYY"
+              value={form.endYear}
+              onChange={handleChange}
+              min="1900"
+              max={new Date().getFullYear()}
+              required
+            />
+            {errors.endYear && (
+              <div className="field-error">{errors.endYear}</div>
+            )}
+          </label>
         )}
       </div>
       
-      <label>
+      <label>Currently working here?
         <input 
           type="checkbox"
           name="isCurrent"
           checked={form.isCurrent}
           onChange={handleCheckbox}
         />
-        Currently working here?
-      </label><br/>
-
+      </label>
+      
+      <label>Key responsibilities and achievements</label><br />
       <textarea 
         name="description"
-        placeholder="Key responsibilities and achievements"
+        placeholder="Enter key responsibilities and achievements..."
         rows={4}
         value={form.description}
         onChange={handleChange}
-      />
+      /><br />
+      {errors.description && (
+        <div className="field-error">{errors.description}</div>
+      )}
 
       <button type="submit">Add experience</button>
     </form>

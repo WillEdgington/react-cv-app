@@ -35,24 +35,39 @@ function EducationForm({ onAdd }) {
     endYear: "",
     description: ""
   });
+  const [errors, setErrors] = useState({});
 
-  function handleChange(e) {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
+  function validate(form) {
+    const errs = {};
 
     const start = Number(form.startYear);
     const end = form.endYear ? Number(form.endYear) : null;
 
     if (end !== null && start > end) {
-      alert("Start year cannot be after end year");
-      return;
+      errs.endYear = "End year cannot be before start year";
     }
+
+    return errs;
+  }
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+
+    setForm(form => ({ ...form, [name]: value }));
+
+    setErrors(form => ({
+      ...form,
+      [name]: undefined
+    }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const validationErrors = validate(form);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) return;
 
     onAdd({
       id: crypto.randomUUID(),
@@ -73,52 +88,68 @@ function EducationForm({ onAdd }) {
       <label>Institution</label><br/>
       <input 
         name="school"
-        placeholder="Institution"
+        placeholder="Enter Institution..."
         value={form.school}
         onChange={handleChange}
         required
       />
+      {errors.school && (
+        <div className="field-error">{errors.school}</div>
+      )}
 
       <label>Qualification</label><br/>
       <input 
         name="qualification"
-        placeholder="Qualification"
+        placeholder="Enter Qualification..."
         value={form.qualification}
         onChange={handleChange}
         required
       />
+      {errors.qualification && (
+        <div className="field-error">{errors.qualification}</div>
+      )}
 
       <label>Start year</label><br/>
       <input
         type="number"
         name="startYear"
-        placeholder="Start year"
+        placeholder="YYYY"
         value={form.startYear}
         onChange={handleChange}
         min="1900"
         max={new Date().getFullYear()}
         required
       />
+      {errors.startYear && (
+        <div className="field-error">{errors.startYear}</div>
+      )}
 
       <label>End year</label><br/>
       <input
         type="number"
         name="endYear"
-        placeholder="End year"
+        placeholder="YYYY"
         value={form.endYear}
         onChange={handleChange}
         min="1900"
         max={new Date().getFullYear() + 10}
+        required
       />
+      {errors.endYear && (
+        <div className="field-error">{errors.endYear}</div>
+      )}
 
       <label>Description</label><br/>
       <textarea
         name="description"
-        placeholder="Description (optional)"
+        placeholder="Enter Description (optional)..."
         rows={4}
         value={form.description}
         onChange={handleChange}
       />
+      {errors.description && (
+        <div className="field-error">{errors.description}</div>
+      )}
 
       <button type="submit">Add education</button>
     </form>

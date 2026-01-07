@@ -24,10 +24,29 @@ function SkillsList({ skills, onDelete, onMove }) {
 
 function SkillsForm({ onAdd }) {
   const [name, setName] = useState("");
+  const [error, setErrors] = useState("");
+
+  function validate() {
+    const errs = {};
+    if (!name.trim()) {
+      errs.name = "Please fill in the skill box";
+    }
+    return errs;
+  }
+
+  function handleChange(e) {
+    setName(e.target.value);
+    setErrors("");
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!name.trim()) return;
+    
+    const validationError = validate();
+    if (validationError.name) {
+      setErrors(validationError.name);
+      return;
+    }
     
     onAdd({ 
       id: crypto.randomUUID(),
@@ -39,11 +58,17 @@ function SkillsForm({ onAdd }) {
 
   return (
     <form onSubmit={handleSubmit} className="skills-form">
+      <label>Skill</label>
       <input
-        placeholder="Skill"
+        placeholder="Enter Skill..."
         value={name}
-        onChange={e => setName(e.target.value)}
+        onChange={handleChange}
+        required
       />
+      {error && (
+        <div className="field-error">{error}</div>
+      )}
+
       <button type="submit">Add Skill</button>
     </form>
   );
