@@ -88,7 +88,7 @@ export default function CVPreview() {
   const { state } = useCV();
 
   return (
-    <div className="cv-preview">
+    <div id="cv-print" className="cv-preview">
       <PersonalPreview 
         personal={state.personal}
       />

@@ -20,7 +20,7 @@ export default function EditorPanel({ buttonLabel, onButtonClick }) {
   };
 
   return (
-    <div className="panel">
+    <div className="editor-panel">
       <Toolbar
         active={active}
         onSelect={setActive}

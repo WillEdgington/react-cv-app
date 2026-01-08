@@ -9,7 +9,8 @@ body {
   overflow: hidden;
 }
 
-.panel {
+.cv-panel, 
+.editor-panel {
   flex: 1;
   border-right: 1px solid #ddd;
   display: flex;
@@ -39,4 +40,94 @@ input {
 
 input:has(+ .field-error) {
   border-color: #c62828;
+}
+
+/* cv preview */
+
+.cv-preview-wrapper {
+  display: flex;
+  justify-content: center;
+  background: #b4b4b4dc;
+}
+
+.cv-preview-wrapper:not(.full-preview) {
+  padding: 0;
+}
+
+.cv-preview-wrapper.full-preview {
+  padding: 2rem
+}
+
+.cv-preview {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 20mm;
+  background: white;
+  color: black;
+  font-family: "Inter", "Arial", sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.cv-preview-wrapper.full-preview.cv-preview {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.cv-preview-wrapper:not(.full-preview).cv-preview {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.cv-preview p,
+.cv-preview li {
+  font-size: 11pt;
+  line-height: 1.5;
+}
+
+.cv-preview h1 {
+  font-size: 22pt;
+  margin-bottom: 0.5rem;
+}
+
+.cv-preview h2 {
+  font-size: 14pt;
+  margin-top: 1.2rem;
+}
+
+@media print {
+  html, body {
+    width: 210mm;
+    overflow: hidden;
+  }
+
+  body {
+    margin: 0;
+    background: white;
+  }
+
+  .cv-preview-wrapper {
+    padding: 0 !important;
+    background: none !important;
+  }
+
+  .cv-preview {
+    width: 100%;
+    min-height: auto;
+    box-shadow: none;
+    padding: 20mm;
+  }
+
+  .editor-panel,
+  .toolbar,
+  .hide-editor,
+  button {
+    display: none !important;
+  }
+
+  .education-box,
+  .experience-box {
+    break-inside: avoid;
+  }
+
+  h2, h3 {
+    break-after: avoid;
+  }
 }
