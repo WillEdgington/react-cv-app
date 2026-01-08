@@ -6,8 +6,6 @@ export default function PreviewPanel({ buttonLabel, onButtonClick }) {
     <div className="cv-panel">
       <div className="toolbar">
         <button onClick={onButtonClick}>{buttonLabel}</button>
-
-        <button onClick={() => window.print()}>Export PDF</button>
       </div>
 
       <div className={`cv-preview-wrapper ${
@@ -16,6 +14,13 @@ export default function PreviewPanel({ buttonLabel, onButtonClick }) {
       >
         <CVPreview />
       </div>
+
+      <button
+        className="print-button" 
+        onClick={() => window.print()}
+      >
+        Export PDF
+      </button>
     </div>
   );
 }

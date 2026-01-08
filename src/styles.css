@@ -6,7 +6,7 @@ body {
 .app-container {
   display: flex;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .cv-panel, 
@@ -15,10 +15,17 @@ body {
   border-right: 1px solid #ddd;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .section {
   padding: 20px;
+  
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 .toolbar {
@@ -45,9 +52,17 @@ input:has(+ .field-error) {
 /* cv preview */
 
 .cv-preview-wrapper {
+  flex: 1;
   display: flex;
   justify-content: center;
   background: #b4b4b4dc;
+  position: relative;
+  
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 .cv-preview-wrapper:not(.full-preview) {
@@ -58,9 +73,27 @@ input:has(+ .field-error) {
   padding: 2rem
 }
 
+.print-button {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: none;
+  background: #222;
+  color: white;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background: #000;
+}
+
 .cv-preview {
   width: 210mm;
   min-height: 297mm;
+
   padding: 20mm;
   background: white;
   color: black;
@@ -110,7 +143,7 @@ input:has(+ .field-error) {
 
   .cv-preview {
     width: 100%;
-    min-height: auto;
+    min-height: 297mm;
     box-shadow: none;
     padding: 20mm;
   }
@@ -118,6 +151,7 @@ input:has(+ .field-error) {
   .editor-panel,
   .toolbar,
   .hide-editor,
+  .print-button,
   button {
     display: none !important;
   }
