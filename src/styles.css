@@ -128,7 +128,8 @@ input:has(+ .field-error) {
 @media print {
   html, body {
     width: 210mm;
-    overflow: hidden;
+    height: auto;
+    overflow: visible;
   }
 
   body {
@@ -137,13 +138,18 @@ input:has(+ .field-error) {
   }
 
   .cv-preview-wrapper {
+    overflow: visible !important;
     padding: 0 !important;
     background: none !important;
   }
 
   .cv-preview {
     width: 100%;
-    min-height: 297mm;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+
     box-shadow: none;
     padding: 20mm;
   }
