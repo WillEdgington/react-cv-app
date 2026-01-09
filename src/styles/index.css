@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: sans-serif;
 }
@@ -6,7 +6,6 @@ body {
 .app-container {
   display: flex;
   height: 100vh;
-  /* overflow: hidden; */
 }
 
 .cv-panel, 
@@ -48,8 +47,6 @@ input {
 input:has(+ .field-error) {
   border-color: #c62828;
 }
-
-/* cv preview */
 
 .cv-preview-wrapper {
   flex: 1;
@@ -170,4 +167,8 @@ input:has(+ .field-error) {
   h2, h3 {
     break-after: avoid;
   }
-}
+} */
+
+@import "./app.css";
+@import "./editor.css";
+@import "./cv.css";

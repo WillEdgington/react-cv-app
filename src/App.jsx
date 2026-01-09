@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import EditorPanel from "./components/editor/EditorPanel.jsx";
 import PreviewPanel from "./components/preview/PreviewPanel.jsx";
-import "./styles.css";
 
 function App() {
   const [visiblePanels, setVisiblePanels] = useState("both");

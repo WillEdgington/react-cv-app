@@ -1,0 +1,25 @@
+.section {
+  padding: 20px;
+  
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+input {
+  display: block;
+  margin-bottom: 12px;
+  padding: 6px;
+}
+
+.field-error {
+  color: #c62828;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+input:has(+ .field-error) {
+  border-color: #c62828;
+}

@@ -1,0 +1,120 @@
+.cv-preview-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background: #b4b4b4dc;
+  position: relative;
+  
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.cv-preview-wrapper:not(.full-preview) {
+  padding: 0;
+}
+
+.cv-preview-wrapper.full-preview {
+  padding: 2rem
+}
+
+.print-button {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: none;
+  background: #222;
+  color: white;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background: #000;
+}
+
+.cv-preview {
+  width: 210mm;
+  min-height: 297mm;
+
+  padding: 20mm;
+  background: white;
+  color: black;
+  font-family: "Inter", "Arial", sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.cv-preview-wrapper.full-preview.cv-preview {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.cv-preview-wrapper:not(.full-preview).cv-preview {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.cv-preview p,
+.cv-preview li {
+  font-size: 11pt;
+  line-height: 1.5;
+}
+
+.cv-preview h1 {
+  font-size: 22pt;
+  margin-bottom: 0.5rem;
+}
+
+.cv-preview h2 {
+  font-size: 14pt;
+  margin-top: 1.2rem;
+}
+
+@media print {
+  html, body {
+    width: 210mm;
+    height: auto;
+    overflow: visible;
+  }
+
+  body {
+    margin: 0;
+    background: white;
+  }
+
+  .cv-preview-wrapper {
+    overflow: visible !important;
+    padding: 0 !important;
+    background: none !important;
+  }
+
+  .cv-preview {
+    width: 100%;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+
+    box-shadow: none;
+    padding: 20mm;
+  }
+
+  .editor-panel,
+  .toolbar,
+  .hide-editor,
+  .print-button,
+  button {
+    display: none !important;
+  }
+
+  .education-box,
+  .experience-box {
+    break-inside: avoid;
+  }
+
+  h2, h3 {
+    break-after: avoid;
+  }
+}

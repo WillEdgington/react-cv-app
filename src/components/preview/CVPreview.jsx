@@ -93,9 +93,9 @@ export default function CVPreview() {
         personal={state.personal}
       />
 
-      {state.skills.length > 0 && (
-        <SkillsPreview 
-          skills={state.skills}
+      {state.experience.length > 0 && (
+        <ExperiencePreview 
+          experience={state.experience}
         />
       )}
 
@@ -105,9 +105,9 @@ export default function CVPreview() {
         />
       )}
 
-      {state.experience.length > 0 && (
-        <ExperiencePreview 
-          experience={state.experience}
+      {state.skills.length > 0 && (
+        <SkillsPreview 
+          skills={state.skills}
         />
       )}
     </div>
