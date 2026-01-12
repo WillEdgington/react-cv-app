@@ -4,9 +4,12 @@ function PersonalPreview({ personal }) {
   return (
     <div className="personal-preview">
       <h1>{personal.name}</h1>
-      <p>{personal.email}</p>
-      <p>{personal.phone}</p>
-      <p>{personal.location}</p>
+
+      <div className="contact-line">
+        {personal.email && <span>{personal.email}</span>}
+        {personal.phone && <span>{personal.phone}</span>}
+        {personal.location && <span>{personal.location}</span>}
+      </div>
     </div>
   );
 }
@@ -32,10 +35,20 @@ function EducationPreview({ education, topN=5 }) {
   function educationItem(item) {
     return (
       <div className="education-item">
-        <strong>{item.qualification}</strong>
-        <div>{item.school}</div>
-        <div>{item.startYear} {item.endYear && `- ${item.endYear}`}</div>
-        <div>{item.description}</div>
+        <div className="education-header">
+          <span className="education-qualification">{item.qualification}</span>
+          <span className="education-dates">
+            {item.startYear} - {item.endYear}
+          </span>
+        </div>
+
+        <div className="education-school">{item.school}</div>
+
+        {item.description && (
+          <div className="education-description">
+            {item.description}
+          </div>
+        )}
       </div>
     );
   }
@@ -60,10 +73,25 @@ function ExperiencePreview({ experience, topN=5 }) {
   function experienceItem(item) {
     return (
       <div className="experience-item">
-        <strong>{item.role}</strong>
-        <div>{item.company} {item.location && `- ${item.location}`}</div>
-        <div>{item.startYear} {item.isCurrent ? `- Current` : `- ${item.endYear}`}</div>
-        <div>{item.description}</div>
+        <div className="experience-header">
+          <span className="experience-role">{item.role}</span>
+          <span className="experience-dates">
+            {item.startYear} - {item.isCurrent ? "Present" : item.endYear}
+          </span>
+        </div>
+
+        <div className="experience-meta">
+          <span className="experience-company">{item.company}</span>
+          {item.location && (
+            <span className="experience-location">• {item.location}</span>
+          )}
+        </div>
+
+        {item.description && (
+          <div className="experience-description">
+            {item.description}
+          </div>
+        )}
       </div>
     );
   }
