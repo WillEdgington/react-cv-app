@@ -20,7 +20,7 @@ function SkillsPreview({ skills, topN=5 }) {
   return (
     <div className="skills-preview">
       <h3>Skills</h3>
-      <ul>
+      <ul className="skills-list">
         {topSkills.map(skill => (
           <li key={skill.id}>
             {skill.name}
