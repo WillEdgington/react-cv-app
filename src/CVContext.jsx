@@ -10,6 +10,7 @@ const initialState = {
     email: "",
     phone: "",
     location: "",
+    summary: "",
   },
   skills: [],
   education: [],

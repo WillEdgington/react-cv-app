@@ -26,6 +26,14 @@ export default function PersonalPage() {
 
       <label>Location</label>
       <input name="location" value={personal.location} onChange={handleChange} />
+
+      <label>Summary</label><br/>
+      <textarea
+        name="summary"
+        rows={4}
+        value={personal.summary}
+        onChange={handleChange}
+      />
     </div>
   );
 }

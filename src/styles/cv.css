@@ -92,6 +92,13 @@
   color: #161616;
 }
 
+.summary {
+  margin-top: 0.6rem;
+  font-size: 10.5pt;
+  line-height: 1.45;
+  max-width: 90%;
+}
+
 /* experience / education */
 
 .experience-item,

@@ -10,6 +10,12 @@ function PersonalPreview({ personal }) {
         {personal.phone && <span>{personal.phone}</span>}
         {personal.location && <span>{personal.location}</span>}
       </div>
+
+      {personal.summary && (
+        <p className="summary">
+          {personal.summary}
+        </p>
+      )}
     </div>
   );
 }
