@@ -27,6 +27,12 @@ export default function PersonalPage() {
       <label>Location</label>
       <input name="location" value={personal.location} onChange={handleChange} />
 
+      <label>LinkedIn</label>
+      <input name="linkedin" value={personal.linkedin} onChange={handleChange} />
+
+      <label>GitHub</label>
+      <input name="github" value={personal.github} onChange={handleChange} />
+
       <label>Summary</label><br/>
       <textarea
         name="summary"

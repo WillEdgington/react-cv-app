@@ -80,16 +80,14 @@
 .contact-line {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 0.3rem;
-
-  font-size: 10.5pt;
+  gap: 0.35rem 0.5rem;
+  margin: 0.35rem 0 0.5rem;
+  font-size: 10pt;
 }
 
 .contact-line span:not(:last-child)::after {
   content: "•";
-  margin-left: 0.8rem;
-  color: #161616;
+  margin-left: 0.5rem;
 }
 
 .summary {
@@ -148,6 +146,20 @@
   font-size: 10.5pt;
   margin-top: 0.3rem;
   line-height: 1.4;
+}
+
+.cv-preview ul.experience-bullets,
+.cv-preview ul.education-bullets {
+  list-style: square;
+  margin-top: 0.35rem;
+  padding-left: 1.2rem;
+}
+
+.experience-bullets li,
+.education-bullets li {
+  font-size: 10.5pt;
+  line-height: 1.35;
+  margin-bottom: 0.15rem;
 }
 
 /* skills */

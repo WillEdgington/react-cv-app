@@ -11,6 +11,8 @@ const initialState = {
     phone: "",
     location: "",
     summary: "",
+    linkedin: "",
+    github: "",
   },
   skills: [],
   education: [],

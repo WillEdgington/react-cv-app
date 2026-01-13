@@ -9,6 +9,12 @@ function PersonalPreview({ personal }) {
         {personal.email && <span>{personal.email}</span>}
         {personal.phone && <span>{personal.phone}</span>}
         {personal.location && <span>{personal.location}</span>}
+        {personal.linkedin && (
+          <span>linkedin.com/in/{personal.linkedin}</span>
+        )}
+        {personal.github && (
+          <span>github.com/{personal.github}</span>
+        )}
       </div>
 
       {personal.summary && (
@@ -51,9 +57,14 @@ function EducationPreview({ education, topN=5 }) {
         <div className="education-school">{item.school}</div>
 
         {item.description && (
-          <div className="education-description">
-            {item.description}
-          </div>
+          <ul className="education-bullets">
+            {item.description
+              .split("\n")
+              .filter(line => line.trim() !== "")
+              .map((line, idx) => (
+                <li key={idx}>{line}</li>
+              ))}
+          </ul>
         )}
       </div>
     );
@@ -94,9 +105,14 @@ function ExperiencePreview({ experience, topN=5 }) {
         </div>
 
         {item.description && (
-          <div className="experience-description">
-            {item.description}
-          </div>
+          <ul className="experience-bullets">
+            {item.description
+              .split("\n")
+              .filter(line => line.trim() !== "")
+              .map((line, idx) => (
+                <li key={idx}>{line}</li>
+              ))}
+          </ul>
         )}
       </div>
     );
