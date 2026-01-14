@@ -97,7 +97,7 @@ function EducationForm({ onAdd }) {
         <div className="field-error">{errors.school}</div>
       )}
 
-      <label>Qualification</label><br/>
+      <label>Qualification</label><br />
       <input 
         name="qualification"
         placeholder="Enter Qualification..."
@@ -109,7 +109,7 @@ function EducationForm({ onAdd }) {
         <div className="field-error">{errors.qualification}</div>
       )}
 
-      <label>Start year</label><br/>
+      <label>Start year</label><br />
       <input
         type="number"
         name="startYear"
@@ -124,7 +124,7 @@ function EducationForm({ onAdd }) {
         <div className="field-error">{errors.startYear}</div>
       )}
 
-      <label>End year</label><br/>
+      <label>End year</label><br />
       <input
         type="number"
         name="endYear"
@@ -139,14 +139,14 @@ function EducationForm({ onAdd }) {
         <div className="field-error">{errors.endYear}</div>
       )}
 
-      <label>Description</label><br/>
+      <label>Description</label><br />
       <textarea
         name="description"
         placeholder="Enter Description (optional)..."
         rows={4}
         value={form.description}
         onChange={handleChange}
-      />
+      /><br />
       {errors.description && (
         <div className="field-error">{errors.description}</div>
       )}

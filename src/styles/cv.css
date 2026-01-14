@@ -183,11 +183,12 @@
   right: 1.5rem;
   padding: 0.6rem 1rem;
   font-size: 0.9rem;
-  border-radius: 6px;
+  border-radius: 999px;
   border: none;
-  background: #222;
+  background: #111;
   color: white;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .print-button:hover {
