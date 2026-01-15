@@ -12,9 +12,9 @@ function EducationList({ education, onDelete, onMove }) {
         </div>
 
         <div className="education-actions">
-          <button disabled={idx === 0} onClick={() => onMove(idx, -1)}>Up</button>
-          <button disabled={idx === education.length - 1} onClick={() => onMove(idx, 1)}>Down</button>
-          <button onClick={() => onDelete(item.id)}>Delete</button>
+          <button className="action-button" disabled={idx === 0} onClick={() => onMove(idx, -1)}>Up</button>
+          <button className="action-button" disabled={idx === education.length - 1} onClick={() => onMove(idx, 1)}>Down</button>
+          <button className="delete-button" onClick={() => onDelete(item.id)}>Delete</button>
         </div>
       </div>
     );
@@ -85,8 +85,9 @@ function EducationForm({ onAdd }) {
 
   return (
     <form onSubmit={handleSubmit} className="education-form">
-      <label>Institution</label><br/>
-      <input 
+      <label>Institution</label>
+      <input
+        className="input-medium"
         name="school"
         placeholder="Enter Institution..."
         value={form.school}
@@ -97,8 +98,9 @@ function EducationForm({ onAdd }) {
         <div className="field-error">{errors.school}</div>
       )}
 
-      <label>Qualification</label><br />
-      <input 
+      <label>Qualification</label>
+      <input
+        className="input-medium"
         name="qualification"
         placeholder="Enter Qualification..."
         value={form.qualification}
@@ -109,44 +111,50 @@ function EducationForm({ onAdd }) {
         <div className="field-error">{errors.qualification}</div>
       )}
 
-      <label>Start year</label><br />
-      <input
-        type="number"
-        name="startYear"
-        placeholder="YYYY"
-        value={form.startYear}
-        onChange={handleChange}
-        min="1900"
-        max={new Date().getFullYear()}
-        required
-      />
-      {errors.startYear && (
-        <div className="field-error">{errors.startYear}</div>
-      )}
+      <div className="date-row">
+        <label>Start year
+          <input
+            className="input-small"
+            type="number"
+            name="startYear"
+            placeholder="YYYY"
+            value={form.startYear}
+            onChange={handleChange}
+            min="1900"
+            max={new Date().getFullYear()}
+            required
+          />
+          {errors.startYear && (
+            <div className="field-error">{errors.startYear}</div>
+          )}
+        </label>
 
-      <label>End year</label><br />
-      <input
-        type="number"
-        name="endYear"
-        placeholder="YYYY"
-        value={form.endYear}
-        onChange={handleChange}
-        min="1900"
-        max={new Date().getFullYear() + 10}
-        required
-      />
-      {errors.endYear && (
-        <div className="field-error">{errors.endYear}</div>
-      )}
+        <label>End year
+          <input
+            className="input-small"
+            type="number"
+            name="endYear"
+            placeholder="YYYY"
+            value={form.endYear}
+            onChange={handleChange}
+            min="1900"
+            max={new Date().getFullYear() + 10}
+            required
+          />
+          {errors.endYear && (
+            <div className="field-error">{errors.endYear}</div>
+          )}
+        </label>
+      </div>
 
-      <label>Description</label><br />
+      <label>Description</label>
       <textarea
         name="description"
         placeholder="Enter Description (optional)..."
         rows={4}
         value={form.description}
         onChange={handleChange}
-      /><br />
+      />
       {errors.description && (
         <div className="field-error">{errors.description}</div>
       )}

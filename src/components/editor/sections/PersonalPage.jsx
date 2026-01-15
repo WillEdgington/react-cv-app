@@ -16,24 +16,24 @@ export default function PersonalPage() {
       <h2>Personal Information</h2>
 
       <label>Full Name</label>
-      <input name="name" value={personal.name} onChange={handleChange} />
+      <input className="input-medium" name="name" value={personal.name} onChange={handleChange} />
       
       <label>Email</label>
-      <input name="email" value={personal.email} onChange={handleChange} />
+      <input className="input-medium" name="email" value={personal.email} onChange={handleChange} />
 
       <label>Phone</label>
-      <input name="phone" value={personal.phone} onChange={handleChange} />
+      <input className="input-medium" name="phone" value={personal.phone} onChange={handleChange} />
 
       <label>Location</label>
-      <input name="location" value={personal.location} onChange={handleChange} />
+      <input className="input-medium" name="location" value={personal.location} onChange={handleChange} />
 
       <label>LinkedIn</label>
-      <input name="linkedin" value={personal.linkedin} onChange={handleChange} />
+      <input className="input-medium" name="linkedin" value={personal.linkedin} onChange={handleChange} />
 
       <label>GitHub</label>
-      <input name="github" value={personal.github} onChange={handleChange} />
+      <input className="input-medium" name="github" value={personal.github} onChange={handleChange} />
 
-      <label>Summary</label><br/>
+      <label>Summary</label>
       <textarea
         name="summary"
         rows={4}

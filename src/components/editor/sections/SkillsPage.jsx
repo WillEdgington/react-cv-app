@@ -8,15 +8,15 @@ function SkillsList({ skills, onDelete, onMove }) {
       <strong>{skill.name}</strong>
 
         <div className="skill-actions">
-          <button disabled={idx === 0} onClick={() => onMove(idx, -1)}>Up</button>
-          <button disabled={idx === skills.length - 1} onClick={() => onMove(idx, 1)}>Down</button>
-          <button onClick={() => onDelete(skill.id)}>Delete</button>
+          <button className="action-button" disabled={idx === 0} onClick={() => onMove(idx, -1)}>Up</button>
+          <button className="action-button" disabled={idx === skills.length - 1} onClick={() => onMove(idx, 1)}>Down</button>
+          <button className="delete-button" onClick={() => onDelete(skill.id)}>Delete</button>
         </div>
       </div>
     );
   }
   return (
-    <div className="skills-list">
+    <div className="skills-list-editor">
       {skills.map((skill, idx) => skillsBox(skill, idx))}
     </div>
   );
@@ -60,6 +60,7 @@ function SkillsForm({ onAdd }) {
     <form onSubmit={handleSubmit} className="skills-form">
       <label>Skill</label>
       <input
+        className="input-medium"
         placeholder="Enter Skill..."
         value={name}
         onChange={handleChange}

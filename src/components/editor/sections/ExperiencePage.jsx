@@ -12,9 +12,9 @@ function ExperienceList({ experience, onDelete, onMove }) {
         </div>
 
         <div className="experience-actions">
-          <button disabled={idx === 0} onClick={() => onMove(idx, -1)}>Up</button>
-          <button disabled={idx === experience.length - 1} onClick={() => onMove(idx, 1)}>Down</button>
-          <button onClick={() => onDelete(item.id)}>Delete</button>
+          <button className="action-button" disabled={idx === 0} onClick={() => onMove(idx, -1)}>Up</button>
+          <button className="action-button" disabled={idx === experience.length - 1} onClick={() => onMove(idx, 1)}>Down</button>
+          <button className="delete-button" onClick={() => onDelete(item.id)}>Delete</button>
         </div>
       </div>
     );
@@ -100,7 +100,8 @@ function ExperienceForm({ onAdd }) {
   return (
     <form onSubmit={handleSubmit} className="experience-form">
       <label>Company</label>
-      <input 
+      <input
+        className="input-medium" 
         name="company" 
         placeholder="Enter Company..."
         value={form.company}
@@ -112,7 +113,8 @@ function ExperienceForm({ onAdd }) {
       )}
 
       <label>Job title</label>
-      <input 
+      <input
+        className="input-medium" 
         name="role" 
         placeholder="Enter Role / Job title..."
         value={form.role} 
@@ -124,7 +126,8 @@ function ExperienceForm({ onAdd }) {
       )}
 
       <label>Location</label>
-      <input 
+      <input
+        className="input-medium" 
         name="location" 
         placeholder="Enter Location (optional)..."
         value={form.location} 
@@ -134,25 +137,28 @@ function ExperienceForm({ onAdd }) {
         <div className="field-error">{errors.location}</div>
       )}
 
-      <label>Start year</label>
       <div className="date-row">
-        <input 
-          type="number" 
-          name="startYear" 
-          placeholder="YYYY"
-          value={form.startYear} 
-          onChange={handleChange}
-          min="1900"
-          max={new Date().getFullYear()}
-          required
-        />
-        {errors.startYear && (
-          <div className="field-error">{errors.startYear}</div>
-        )}
+        <label>Start year
+          <input
+            className="input-small"
+            type="number" 
+            name="startYear" 
+            placeholder="YYYY"
+            value={form.startYear} 
+            onChange={handleChange}
+            min="1900"
+            max={new Date().getFullYear()}
+            required
+          />
+          {errors.startYear && (
+            <div className="field-error">{errors.startYear}</div>
+          )}
+        </label>
 
         {!form.isCurrent && (
           <label>End year
-            <input 
+            <input
+              className="input-small"
               type="number" 
               name="endYear"
               placeholder="YYYY"
@@ -169,23 +175,24 @@ function ExperienceForm({ onAdd }) {
         )}
       </div>
       
-      <label>Currently working here?
-        <input 
+      <div className="checkbox-row">
+        <input
           type="checkbox"
           name="isCurrent"
           checked={form.isCurrent}
           onChange={handleCheckbox}
         />
-      </label>
+        <label>Currently working here</label>
+      </div>
       
-      <label>Key responsibilities and achievements</label><br />
+      <label>Key responsibilities and achievements</label>
       <textarea 
         name="description"
         placeholder="Enter key responsibilities and achievements..."
         rows={4}
         value={form.description}
         onChange={handleChange}
-      /><br />
+      />
       {errors.description && (
         <div className="field-error">{errors.description}</div>
       )}
