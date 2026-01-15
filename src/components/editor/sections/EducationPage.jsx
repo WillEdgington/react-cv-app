@@ -147,10 +147,15 @@ function EducationForm({ onAdd }) {
         </label>
       </div>
 
-      <label>Description</label>
+      <label>
+        Key takeaways
+        <span className="helper-text">
+          (Each new line becomes a bullet point)
+        </span>
+      </label>
       <textarea
         name="description"
-        placeholder="Enter Description (optional)..."
+        placeholder="What did you learn?..."
         rows={4}
         value={form.description}
         onChange={handleChange}

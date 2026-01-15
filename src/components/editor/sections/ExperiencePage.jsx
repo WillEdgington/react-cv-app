@@ -185,7 +185,12 @@ function ExperienceForm({ onAdd }) {
         <label>Currently working here</label>
       </div>
       
-      <label>Key responsibilities and achievements</label>
+      <label>
+        Key responsibilities and achievements
+        <span className="helper-text">
+          (Each new line becomes a bullet point)
+        </span>
+      </label>
       <textarea 
         name="description"
         placeholder="Enter key responsibilities and achievements..."

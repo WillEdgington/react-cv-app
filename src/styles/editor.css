@@ -121,6 +121,14 @@ input:has(+ .field-error) {
   white-space: nowrap;
 }
 
+.helper-text {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #111827c2;
+  margin-top: 0.15rem;
+}
+
 /* item list/boxes styles */
 
 .skills-list-editor,
