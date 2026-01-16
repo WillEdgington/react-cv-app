@@ -1,5 +1,7 @@
 # React CV Builder
 
+[Click here](https://william-edgington-cv-app.vercel.app/) to checkout the application deployed on Vercel!
+
 This is a clean, professional CV builder application built with React that allows users to create, preview, and export a one-page CV as a PDF.
 
 ## Features
