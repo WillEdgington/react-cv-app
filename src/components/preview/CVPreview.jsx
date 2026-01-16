@@ -26,7 +26,7 @@ function PersonalPreview({ personal }) {
   );
 }
 
-function SkillsPreview({ skills, topN=5 }) {
+function SkillsPreview({ skills, topN=10 }) {
   const topSkills = skills.slice(0, topN);
   
   return (
