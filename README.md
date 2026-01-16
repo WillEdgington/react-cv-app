@@ -1,16 +1,46 @@
-# React + Vite
+# React CV Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a clean, professional CV builder application built with React that allows users to create, preview, and export a one-page CV as a PDF.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Live CV preview with print-ready layout
+- Section-based editor (Personal, Experience, Education, Skills)
+- Reorderable items (move up/down)
+- Inline form validation
+- Bullet-point descriptions via newline input
+- Local storage persistence
+- One-click PDF export
+- Printer-friendly styling
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- CSS (modularised by feature)
+- Vite
 
-## Expanding the ESLint configuration
+## Design Decisions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Print-first layout**: CV preview matches exported PDF exactly (once margin disabled)
+- **Minimalist editor UI**: focus on clarity and usability
+- **No external UI libraries**: all styling done with custom CSS
+- **Explicit state management**: predictable updates via reducer
+
+## Future Improvements
+- Keyboard accessibility
+- Responsive layout for mobile
+- Drag-and-drop reordering
+- Inline editing of existing entries
+
+## Contact
+Created by [**WillEdgington**](https://github.com/WillEdgington) for a project in the React module of the [**Odin Project**](https://www.theodinproject.com/lessons/react-new-cv-application) course.
+
+📧 **willedge037@gmail.com**
+
+🔗 [**LinkedIn**](https://www.linkedin.com/in/williamedgington/)
+
+## Screenshots
+
+![Application Screenshot](./application-screenshots/full-application.png)
+![Editor Screenshot](./application-screenshots/editor-panel-only.png)
+![CV Preview Screenshot](./application-screenshots/cv-preview-only.png)
